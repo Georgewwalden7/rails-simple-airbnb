@@ -14,3 +14,16 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+console.log("I made it here")
+const form = document.getElementById("submit");
+const name = document.getElementById("name");
+const address = document.getElementById("address");
+const description = document.getElementById("description");
+
+document.addEventListener('click', (event) => {
+  console.log("Check me out!");
+  console.log(name.value);
+  console.log(address.value);
+  console.log(description.value);
+});

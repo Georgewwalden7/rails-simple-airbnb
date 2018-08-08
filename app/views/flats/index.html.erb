@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>All our Flats (<%= @flats.length %>)</h1>
+  <div class="grid">
+    <% @flats.each do |f| %>
+      <%= link_to flat_path(f), :class => "no-text-decoration" do %>
+        <div class = "card">
+          <div class = "picture">
+            <img src="https://picsum.photos/300/150?image=<%= f.id + 50%>" alt="" class = "pic">
+          </div>
+          <div class="card_content">
+            <p class="title"><%= f.name  %></p>
+            <p class="description"><%= f.address %></p>
+            <div class="icons">
+              <i class="fas fa-dollar-sign"></i>
+              <%= f.price_per_night %>
+              <br>
+              <i class="fas fa-users"></i>
+              <%= f.number_of_guests %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+
+    <%= form_for :flat, :id => "form" do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, :id=> "name" %>
+      <%= f.label :address %>
+      <%= f.text_field :address, :id=> "address"  %>
+      <%= f.label :description %>
+      <%= f.text_field :description, :id=> "description" %>
+      <%= f.submit :id => "submit" %>
+    <% end %>
+  </div>
+</div>
+
